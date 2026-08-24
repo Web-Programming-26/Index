@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NODA ICT verzorgt IT-beheer, netwerken, cloud en cybersecurity voor bedrijven in Suriname.">
+  <title>NODA ICT — IT-beheer, netwerken en cloud in Paramaribo</title>
+
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Eigen CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ======================= NAVIGATIEBALK ======================= -->
+  <nav class="navbar navbar-expand-lg topbar navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 text-white" href="index.html">
+        <img src="assets/img/logo.svg" alt="Logo van NODA ICT">
+        <span>NODA<span class="text-warning">ICT</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hoofdmenu"
+              aria-controls="hoofdmenu" aria-expanded="false" aria-label="Menu openen">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="hoofdmenu">
+        <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="over-ons.html">Over ons</a></li>
+          <li class="nav-item"><a class="nav-link" href="videos.html">Mijn video's</a></li>
+          <li class="nav-item"><a class="nav-link" href="game.html">Game</a></li>
+
+          <!-- Dropdown-menu (minimaal 1 vereist) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="menuKennis" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Kennisbank</a>
+            <ul class="dropdown-menu" aria-labelledby="menuKennis">
+              <li><a class="dropdown-item" href="https://learn.microsoft.com/" target="_blank" rel="noopener">Microsoft Learn</a></li>
+              <li><a class="dropdown-item" href="https://getbootstrap.com/docs/5.3/" target="_blank" rel="noopener">Bootstrap 5 documentatie</a></li>
+              <li><a class="dropdown-item" href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="over-ons.html#contact">Contactformulier</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Zoekknop rechtsboven (alleen uiterlijk) -->
+        <div class="d-flex zoekvak" role="search">
+          <input class="form-control me-2" type="search" placeholder="Zoeken op de site" aria-label="Zoeken">
+          <button class="btn btn-signal" type="button" title="Zoeken">
+            <i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Zoeken</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================= STATUSSTRIP ======================= -->
+  <div class="statusstrip">
+    <div class="container text-truncate">
+      <span class="stip" aria-hidden="true"></span>Alle systemen operationeel
+      <span class="scheiding">/</span>Uptime 99,98%
+      <span class="scheiding">/</span>Reactietijd &lt; 15 min
+      <span class="scheiding">/</span>Helpdesk 24/7 — 597 471 000
+    </div>
+  </div>
+
+  <!-- ======================= HERO MET CARROUSEL ======================= -->
+  <header class="hero">
+    <div id="heroCarrousel" class="carousel slide hero-carrousel" data-bs-ride="carousel" data-bs-interval="6000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarrousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Foto 1"></button>
+        <button type="button" data-bs-target="#heroCarrousel" data-bs-slide-to="1" aria-label="Foto 2"></button>
+        <button type="button" data-bs-target="#heroCarrousel" data-bs-slide-to="2" aria-label="Foto 3"></button>
+        <button type="button" data-bs-target="#heroCarrousel" data-bs-slide-to="3" aria-label="Foto 4"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1 -> Over ons -->
+        <div class="carousel-item active">
+          <a class="slide-link" href="over-ons.html">
+            <img src="assets/img/foto-1.svg" class="anim-links" alt="Helpdeskmedewerkers van NODA ICT aan het werk">
+            <div class="hero-overlay"></div>
+            <div class="hero-inhoud">
+              <div class="container">
+                <p class="eyebrow eyebrow--licht mb-2">01 / Managed IT</p>
+                <h1>Uw IT draait door, ook als u slaapt.</h1>
+                <p class="lead">Wij nemen het volledige beheer van uw werkplekken, servers en netwerk over — met een helpdesk die in Paramaribo zit en uw taal spreekt.</p>
+                <span class="slide-badge">Klik voor: Over ons <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 2 -> Video's -->
+        <div class="carousel-item">
+          <a class="slide-link" href="videos.html">
+            <img src="assets/img/foto-2.svg" class="anim-links" alt="Netwerkkabels en switches in een serverkast">
+            <div class="hero-overlay"></div>
+            <div class="hero-inhoud">
+              <div class="container">
+                <p class="eyebrow eyebrow--licht mb-2">02 / Netwerk</p>
+                <h2 class="als-h1">Een netwerk dat meegroeit met uw bedrijf.</h2>
+                <p class="lead">Van bekabeling en VLAN-ontwerp tot wifi op elke werkvloer. Bekijk hoe wij te werk gaan in onze video's.</p>
+                <span class="slide-badge">Klik voor: Mijn video's <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 3 -> Game -->
+        <div class="carousel-item">
+          <a class="slide-link" href="game.html">
+            <img src="assets/img/foto-3.svg" class="anim-links" alt="Cloudinfrastructuur met Microsoft 365-werkplekken">
+            <div class="hero-overlay"></div>
+            <div class="hero-inhoud">
+              <div class="container">
+                <p class="eyebrow eyebrow--licht mb-2">03 / Cloud</p>
+                <h2 class="als-h1">Even pauze? Speel onze packet-game.</h2>
+                <p class="lead">We bouwen niet alleen netwerken, we spelen er ook mee. Loods de datapakketten door het netwerk zonder te crashen.</p>
+                <span class="slide-badge">Klik voor: Game <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 4 -> Contactformulier -->
+        <div class="carousel-item">
+          <a class="slide-link" href="over-ons.html#contact">
+            <img src="assets/img/foto-4.svg" class="anim-links" alt="Security operations center met beveiligingsdashboards">
+            <div class="hero-overlay"></div>
+            <div class="hero-inhoud">
+              <div class="container">
+                <p class="eyebrow eyebrow--licht mb-2">04 / Security</p>
+                <h2 class="als-h1">Back-up én herstel. Getest, elke maand.</h2>
+                <p class="lead">Een back-up die nooit is teruggezet, is geen back-up. Vraag een gratis security-scan aan.</p>
+                <span class="slide-badge">Klik voor: Contactformulier <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarrousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Vorige</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarrousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Volgende</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======================= DIENSTEN + ZIJMENU ======================= -->
+  <main>
+    <section class="sectie" id="diensten">
+      <div class="container">
+        <div class="row g-5">
+
+          <!-- Hoofdkolom -->
+          <div class="col-lg-9">
+            <p class="eyebrow">Wat wij doen</p>
+            <!-- Tweede H1 op een subsectie van de pagina -->
+            <h1 class="mb-3">Vier diensten, één aanspreekpunt.</h1>
+            <p class="tekst-muted mb-5" style="max-width: 62ch;">
+              Geen losse leveranciers die naar elkaar wijzen. NODA ICT beheert de hele keten — van de laptop op het bureau
+              tot de firewall in het datacenter.
+            </p>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <article class="kaart anim-op vertraag-1">
+                  <img src="assets/img/foto-1.svg" class="fotokader" alt="Helpdeskmedewerker helpt een klant op afstand">
+                  <div class="kaart-body">
+                    <p class="dienst-nr mb-1">01 — Managed IT</p>
+                    <h3>Werkplek &amp; helpdesk</h3>
+                    <p class="tekst-muted mb-0">Onbeperkt support op laptops, printers en telefoons. Wij lossen 8 van de 10 meldingen op afstand op.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-md-6">
+                <article class="kaart anim-op vertraag-2">
+                  <img src="assets/img/foto-2.svg" class="fotokader" alt="Serverkast met netwerkswitches en patchkabels">
+                  <div class="kaart-body">
+                    <p class="dienst-nr mb-1">02 — Netwerk</p>
+                    <h3>Netwerk &amp; connectiviteit</h3>
+                    <p class="tekst-muted mb-0">Bekabeling, VLAN-ontwerp, firewalls en wifi die ook op de tweede verdieping werkt.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-md-6">
+                <article class="kaart anim-op vertraag-3">
+                  <img src="assets/img/foto-3.svg" class="fotokader" alt="Medewerker werkt in de cloud met Microsoft 365">
+                  <div class="kaart-body">
+                    <p class="dienst-nr mb-1">03 — Cloud</p>
+                    <h3>Cloud &amp; Microsoft 365</h3>
+                    <p class="tekst-muted mb-0">Migratie naar Microsoft 365, e-mailbeveiliging en bestanden die overal veilig meegaan.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-md-6">
+                <article class="kaart anim-op vertraag-4">
+                  <img src="assets/img/foto-4.svg" class="fotokader" alt="Dashboard met beveiligingsmeldingen en back-upstatus">
+                  <div class="kaart-body">
+                    <p class="dienst-nr mb-1">04 — Security</p>
+                    <h3>Cybersecurity &amp; back-up</h3>
+                    <p class="tekst-muted mb-0">Monitoring, patchbeheer en back-ups die wij maandelijks testen met een echte restore.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- ZIJMENU: minstens 3 links naar externe pagina's -->
+          <aside class="col-lg-3">
+            <div class="zijmenu">
+              <p class="eyebrow mb-1">Zijmenu</p>
+              <h3 class="mb-3">Handige bronnen</h3>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <img src="assets/img/link-1.svg" alt="Pictogram Microsoft Learn">
+                  <a href="https://learn.microsoft.com/" target="_blank" rel="noopener">
+                    <span class="link-titel">Microsoft Learn</span>
+                    <span class="link-uitleg">Officiële documentatie en trainingen</span>
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <img src="assets/img/link-2.svg" alt="Pictogram Bootstrap">
+                  <a href="https://getbootstrap.com/docs/5.3/" target="_blank" rel="noopener">
+                    <span class="link-titel">Bootstrap 5</span>
+                    <span class="link-uitleg">Grid, componenten en utilities</span>
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <img src="assets/img/link-3.svg" alt="Pictogram MDN Web Docs">
+                  <a href="https://developer.mozilla.org/nl/" target="_blank" rel="noopener">
+                    <span class="link-titel">MDN Web Docs</span>
+                    <span class="link-uitleg">Naslag voor HTML, CSS en JavaScript</span>
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <img src="assets/img/link-4.svg" alt="Pictogram CISA">
+                  <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener">
+                    <span class="link-titel">CISA Security Tips</span>
+                    <span class="link-uitleg">Praktische beveiligingsadviezen</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CIJFERS ======================= -->
+    <section class="sectie sectie--wit">
+      <div class="container">
+        <div class="row g-4 text-center">
+          <div class="col-6 col-lg-3">
+            <p class="cijfer">140+</p>
+            <p class="tekst-muted mb-0">Beheerde werkplekken</p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <p class="cijfer">99,98%</p>
+            <p class="tekst-muted mb-0">Gemeten uptime in 2025</p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <p class="cijfer">&lt; 15 min</p>
+            <p class="tekst-muted mb-0">Gemiddelde reactietijd</p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <p class="cijfer">24/7</p>
+            <p class="tekst-muted mb-0">Monitoring en bereikbaarheid</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= OPROEP ======================= -->
+    <section class="sectie">
+      <div class="container">
+        <div class="kaart p-4 p-lg-5">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <p class="eyebrow">Vrijblijvend</p>
+              <h2 class="mb-2">Benieuwd hoe uw IT ervoor staat?</h2>
+              <p class="tekst-muted mb-0">Wij komen langs, brengen uw netwerk en back-ups in kaart en leveren binnen een week een rapport op. Zonder kosten.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a class="btn btn-signal btn-lg" href="over-ons.html#contact">Plan een scan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <img src="assets/img/logo.svg" alt="Logo van NODA ICT" height="30">
+            <span class="display-font text-white fs-5">NODA ICT</span>
+          </div>
+          <p class="mb-0">IT-beheer, netwerken, cloud en security voor het Surinaamse bedrijfsleven.</p>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h4 class="mb-3">Adres</h4>
+          <address class="mb-0">
+            Kernkampweg 12<br>
+            Paramaribo<br>
+            Suriname
+          </address>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h4 class="mb-3">Contact</h4>
+          <p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+597471000">+597 471 000</a></p>
+          <p class="mb-1"><i class="bi bi-envelope me-2"></i><a href="mailto:info@nodaict.sr">info@nodaict.sr</a></p>
+          <p class="mb-0"><i class="bi bi-clock me-2"></i>ma&ndash;vr 08:00&ndash;17:00</p>
+        </div>
+
+        <div class="col-lg-2">
+          <h4 class="mb-3">Meer</h4>
+          <ul class="list-unstyled mb-0">
+            <li><a href="over-ons.html">Over ons</a></li>
+            <li><a href="videos.html">Mijn video's</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><a href="over-ons.html#contact">Privacy &amp; voorwaarden</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-onder d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; 2026 NODA ICT — Alle rechten voorbehouden</span>
+        <span>Groep 26 · Web Programming 1 · PTC</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
