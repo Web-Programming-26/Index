@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+:root {
+  --primary-color: #0284c7;
+  --secondary-color: #0f172a;
+  --accent-color: #38bdf8;
+  --bg-color: #f8fafc;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: #334155;
+}
+
+.navbar {
+  background-color: var(--secondary-color) !important;
+}
+
+.btn-custom {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 25px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #0369a1;
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  color: var(--accent-color) !important;
+  transition: color 0.3s ease;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.foto-standaard {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.carousel-item img {
+  height: 480px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(15, 23, 42, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  border-bottom: 4px solid var(--primary-color);
+}
+
+.zijmenu {
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0 !important;
+}
+
+.moving-text {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+footer {
+  background-color: var(--secondary-color);
+}
