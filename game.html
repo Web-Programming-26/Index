@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+
+    <p>Score: <span id="score">0</span></p>
+    <canvas id="mijnCanvas" width="400" height="400" style="background: black;"></canvas>
+    <br>
+    <button id="startKnop">Start</button>
+
+    <script>
+        var canvas = document.getElementById("mijnCanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(100, 60, 20, 20);
+    </script>
+</body>
+</html>
