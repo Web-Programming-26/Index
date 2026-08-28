@@ -1,1 +1,38 @@
+#mijnCanvas {
+    background: #0f172a;
+    border: 3px solid #0284c7;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
 
+.score-tekst {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #0284c7;
+}
+
+.pijl-knop {
+    width: 58px;
+    height: 58px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border: 2px solid #0284c7;
+    background: #ffffff;
+    color: #0284c7;
+    border-radius: 12px;
+}
+
+.pijl-knop:hover {
+    background: #0284c7;
+    color: #ffffff;
+}
+
+@media (max-width: 400px) {
+    .pijl-knop {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+}
