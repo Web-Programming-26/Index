@@ -2,21 +2,289 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARC6 IT Consulting - Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-    <p>Score: <span id="score">0</span></p>
-    <canvas id="mijnCanvas" width="400" height="400" style="background: black;"></canvas>
-    <br>
-    <button id="startKnop">Start</button>
+    <style>
+        #mijnCanvas {
+            background: #0f172a;
+            border: 3px solid #0284c7;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .pijl-knop {
+            width: 58px;
+            height: 58px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border: 2px solid #0284c7;
+            background: white;
+            color: #0284c7;
+            border-radius: 12px;
+        }
+        .pijl-knop:hover {
+            background: #0284c7;
+            color: white;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVIGATIEBALK -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=ARC6&backgroundColor=0284c7&fontFamily=Arial" alt="ARC6 Logo" width="40" height="40" class="rounded-circle">
+                    <span class="fw-bold fs-4 text-info">ARC6 IT Consulting</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">Over ons</a></li>
+                        <li class="nav-item"><a class="nav-link fw-semibold" href="videos.html">Video's</a></li>
+                        <li class="nav-item"><a class="nav-link active fw-semibold" href="game.html">Game</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-semibold" href="#" id="dienstenDropdown" data-bs-toggle="dropdown">Diensten</a>
+                            <ul class="dropdown-menu shadow-lg border-0">
+                                <li><a class="dropdown-item fw-semibold" href="index.html#diensten">IT Consulting</a></li>
+                                <li><a class="dropdown-item fw-semibold" href="index.html#diensten">Cloud Solutions</a></li>
+                                <li><a class="dropdown-item fw-semibold" href="index.html#diensten">Cybersecurity</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 rounded-pill" type="search" placeholder="Zoeken..." aria-label="Zoeken">
+                        <button class="btn btn-custom px-3" type="button">Zoek</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-5 flex-grow-1">
+        <div class="row g-4">
+
+            <!-- ZIJMENU -->
+            <aside class="col-lg-3 col-md-4">
+                <div class="zijmenu p-3 bg-white rounded-4 shadow-sm">
+                    <h5 class="fw-bold mb-3 border-bottom pb-2 text-primary">Handige Links</h5>
+                    <div class="list-group list-group-flush">
+                        <a href="https://www.w3schools.com/graphics/canvas_intro.asp" target="_blank" class="list-group-item list-group-item-action fw-semibold">🎨 W3Schools Canvas</a>
+                        <a href="https://getbootstrap.com/docs/5.3/" target="_blank" class="list-group-item list-group-item-action fw-semibold">📘 Bootstrap 5 Docs</a>
+                        <a href="https://developer.mozilla.org/nl/" target="_blank" class="list-group-item list-group-item-action fw-semibold">💡 MDN Web Docs</a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- HOOFDINHOUD -->
+            <main class="col-lg-9 col-md-8">
+                <h1 class="fw-bold text-primary mb-3">Onze mini-game</h1>
+                <p class="lead text-secondary">
+                    Eet de gele blokjes en word steeds langer. Raak de rand of jezelf niet,
+                    want dan is het spel voorbij.
+                </p>
+
+                <div class="row g-4 mt-2">
+
+                    <div class="col-lg-7">
+                        <div class="p-4 bg-white rounded-4 border shadow-sm">
+                            <p class="fw-bold text-primary fs-5 text-center">Score: <span id="score">0</span></p>
+
+                            <canvas id="mijnCanvas" width="400" height="400"></canvas>
+
+                            <p id="melding" class="text-center text-secondary mt-3">Druk op Start om te spelen.</p>
+
+                            <div class="text-center mb-3">
+                                <button class="btn btn-custom btn-lg px-4" onclick="startSpel()">Start</button>
+                            </div>
+
+                            <!-- knoppen voor de telefoon -->
+                            <div class="text-center">
+                                <button class="pijl-knop mb-2" onclick="verander(0, -1)">&uarr;</button>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="pijl-knop" onclick="verander(-1, 0)">&larr;</button>
+                                    <button class="pijl-knop" onclick="verander(0, 1)">&darr;</button>
+                                    <button class="pijl-knop" onclick="verander(1, 0)">&rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="p-4 bg-white rounded-4 border shadow-sm h-100">
+                            <h2 class="h4 fw-bold text-info mb-3">Spelregels</h2>
+                            <ul class="text-secondary">
+                                <li>Gebruik de pijltjestoetsen op de computer.</li>
+                                <li>Op de telefoon gebruik je de vier knoppen.</li>
+                                <li>Elk geel blokje is 10 punten.</li>
+                                <li>Je mag niet meteen achteruit.</li>
+                            </ul>
+
+                            <hr>
+
+                            <h3 class="h5 fw-bold text-info mb-2">Bronvermelding</h3>
+                            <p class="text-secondary small mb-0">
+                                Zelf gemaakt in JavaScript met een canvas. Het spel is het bekende
+                                Snake-spel. Voor de uitleg over canvas hebben we
+                                <a href="https://www.w3schools.com/graphics/canvas_intro.asp" target="_blank" class="text-primary fw-bold">W3Schools Canvas</a>
+                                gebruikt.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-1 fw-bold text-info">ARC6 IT Consulting — Kernkampweg 12, Paramaribo, Suriname</p>
+            <small class="text-white-50">Tel: +597 123 4567 | E-mail: info@arc6.sr</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // ---- variabelen ----
         var canvas = document.getElementById("mijnCanvas");
         var ctx = canvas.getContext("2d");
 
-        ctx.fillStyle = "yellow";
-        ctx.fillRect(100, 60, 20, 20);
+        var grootte = 20;   // een blokje is 20 bij 20 pixels
+        var vakjes = 20;    // het veld is 20 bij 20 blokjes
+
+        var slang = [];
+        var richtingX = 1;
+        var richtingY = 0;
+        var etenX = 5;
+        var etenY = 5;
+        var score = 0;
+        var timer = null;
+
+        // ---- het spel starten ----
+        function startSpel() {
+            slang = [];
+            slang.push({ x: 10, y: 10 });
+            slang.push({ x: 9, y: 10 });
+            slang.push({ x: 8, y: 10 });
+
+            richtingX = 1;
+            richtingY = 0;
+            score = 0;
+            document.getElementById("score").innerHTML = score;
+            document.getElementById("melding").innerHTML = "Veel succes!";
+
+            nieuwEten();
+
+            clearInterval(timer);
+            timer = setInterval(stap, 150);
+        }
+
+        // ---- nieuw stukje eten op een willekeurige plek ----
+        function nieuwEten() {
+            etenX = Math.floor(Math.random() * vakjes);
+            etenY = Math.floor(Math.random() * vakjes);
+        }
+
+        // ---- elke 150 milliseconden gaat de slang een stapje verder ----
+        function stap() {
+            var kopX = slang[0].x + richtingX;
+            var kopY = slang[0].y + richtingY;
+
+            // botst de slang tegen de rand?
+            if (kopX < 0 || kopY < 0 || kopX >= vakjes || kopY >= vakjes) {
+                gameOver();
+                return;
+            }
+
+            // botst de slang tegen zichzelf?
+            for (var i = 0; i < slang.length; i++) {
+                if (slang[i].x == kopX && slang[i].y == kopY) {
+                    gameOver();
+                    return;
+                }
+            }
+
+            // nieuwe kop vooraan in de lijst zetten
+            slang.unshift({ x: kopX, y: kopY });
+
+            if (kopX == etenX && kopY == etenY) {
+                score = score + 10;
+                document.getElementById("score").innerHTML = score;
+                nieuwEten();
+            } else {
+                slang.pop();   // niets gegeten, dus de staart gaat eraf
+            }
+
+            tekenen();
+        }
+
+        // ---- alles op het canvas tekenen ----
+        function tekenen() {
+            // achtergrond
+            ctx.fillStyle = "#0f172a";
+            ctx.fillRect(0, 0, 400, 400);
+
+            // het eten
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(etenX * grootte, etenY * grootte, grootte, grootte);
+
+            // de slang
+            for (var i = 0; i < slang.length; i++) {
+                if (i == 0) {
+                    ctx.fillStyle = "white";
+                } else {
+                    ctx.fillStyle = "#0284c7";
+                }
+                ctx.fillRect(slang[i].x * grootte, slang[i].y * grootte, grootte - 2, grootte - 2);
+            }
+        }
+
+        // ---- het spel is voorbij ----
+        function gameOver() {
+            clearInterval(timer);
+            document.getElementById("melding").innerHTML = "Game over! Je score is " + score + ".";
+        }
+
+        // ---- van richting veranderen ----
+        function verander(x, y) {
+            // je mag niet meteen achteruit
+            if (x == -richtingX && y == -richtingY) {
+                return;
+            }
+            richtingX = x;
+            richtingY = y;
+        }
+
+        // ---- de pijltjestoetsen ----
+        document.onkeydown = function (event) {
+            if (event.key == "ArrowUp") {
+                verander(0, -1);
+            } else if (event.key == "ArrowDown") {
+                verander(0, 1);
+            } else if (event.key == "ArrowLeft") {
+                verander(-1, 0);
+            } else if (event.key == "ArrowRight") {
+                verander(1, 0);
+            }
+        };
+
+        // het lege veld tekenen als de pagina opent
+        ctx.fillStyle = "#0f172a";
+        ctx.fillRect(0, 0, 400, 400);
     </script>
 </body>
 </html>
